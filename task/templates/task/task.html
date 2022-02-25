@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Ado - {{ task.title }}
+{% endblock  %}
+
+ {% block content %}
+
+
+
+ <div class="overlay"></div>
+
+ <div class="modal">
+     <p>Are you sure to delete?</p>
+
+     <h3>{{ task.title }}</h3>
+
+     <div class="btn-group">
+        <button class="close-btn">Cancel</button>
+        <button class="confirm-btn btn btn-primary" data-id="{{ task.id }}">Confirm</button>
+     </div>
+ </div>
+
+ {% include 'includes/message.html' %}
+
+ <div class="card">
+
+  <a href="{% url 'index' %}">Back to Tasks</a>
+ 
+ <h3>{{ task.title }}</h3>
+
+ <small>posted by {{ task.author }} &middot; {{ task.created_at|timesince }} ago</small>
+
+ <p>{{ task.description }}</p>
+
+ {% if request.user == task.author %}
+    <div class="card-footer">
+        <a href="{% url 'edit' task.id %}" class="btn btn-primary">Edit</a>
+        {% comment %} <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a> {% endcomment %}
+        <button type="button" class="btn btn-danger">Delete</button>
+    </div>
+ {% endif %}
+
+ </div>
+
+ 
+ {% endblock %}

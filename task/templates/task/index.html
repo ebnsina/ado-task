@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  All Tasks
+{% endblock  %}
+
+ {% block content %}
+
+  {% include 'includes/message.html' %}
+ 
+<div class="card">
+   {% if tasks %}
+   <h3>My Tasks</h3>
+
+    <ul>
+    {% for task in tasks %}
+      <li>
+        {% if task.complete %}
+           <a class="line-through" href="{% url 'task' task.id %}">{{ task.title }}</a>
+         {% else %}
+          <a href="{% url 'task' task.id %}">{{ task.title }}</a>
+        {% endif %}
+      </li>
+     {% endfor %}
+   {% else %}
+       <li>No task yet! <a href="{% url 'new' %}">Try adding some?</a></li>
+   
+ </ul>
+ {% endif %}
+
+</div>
+ 
+ {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Edit - {{ task.title }}
+{% endblock  %}
+
+ {% block content %}
+ 
+  {% include 'includes/message.html' %}
+  
+ <div class="card">
+     <h3>Edit - {{ task.title }}</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in task_form %}
+            <div class="form-group">
+                <label>{{ field.label_tag }}</label>
+                {{ field}}
+            </div>
+        {% endfor %}
+        
+        <div class="btn-group">
+            <a href="{% url 'task' task.id %}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn-primary">Submit</button>
+        </div>
+    </form>
+ </div>
+
+
+ {% endblock %}

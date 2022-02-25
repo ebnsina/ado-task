@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <h1>Ado</h1>
+      </a>
+
+      <nav class="menu">
+        <ul>
+          {% if request.user.is_authenticated %}
+            <li><a href="{% url 'new' %}" class="btn btn-primary">Add New Task</a></li>
+            <li><a href="{% url 'logout' %}" class="btn btn-primary">Sign Out</a></li>
+            <li><a href="#" class="btn ">Welcome, {{ user.username }}!</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}" class="btn btn-primary">Sign In</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

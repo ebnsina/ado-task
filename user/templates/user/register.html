@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Ado - Create a new account
+{% endblock  %}
+
+ {% block content %}
+ 
+<div class="card">
+     <h3>Create a new account</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                <label>{{ field.label_tag }}</label>
+                {{ field }}
+            </div>
+
+           <div class="error-message">{{ field.errors }}</div>
+        {% endfor %} 
+
+        <div class="btn-group">
+            <p class="link-over">Already have an account?  <a href="{% url 'login' %}">Sign In</a></p>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+    </form>
+
+  
+</div>
+ 
+ {% endblock %}

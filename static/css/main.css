@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #00DD82;
+    --primary-light: #5FE7A7;
+    --danger: #ff4757;
+    --danger-light: #ff6b81;
+}
+
+body {
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    background-color: #F3F3F3;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    color: inherit;
+    transition: all .2s;
+    text-decoration: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 0.2rem 0;
+    background-color: #fff;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.menu ul {
+    display: flex;
+}
+
+.menu li {
+    margin-right: 1rem;
+}
+
+main {
+    padding: 0.6rem 0;
+}
+
+
+button,
+.btn {
+    padding: 0.4rem 1rem;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: solid 1px transparent;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:focus,
+.btn-primary:hover {
+     background: var(--primary-light);
+}
+
+.btn-secondary:focus, 
+.btn-secondary:hover {
+    background: #ddd;
+    color: #222;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-danger:focus,
+.btn-danger:hover {
+     background: var(--danger-light);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+    color: #757575;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+   padding: 0.4rem 1rem;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: solid 1px #ddd;
+    transition: all .2s;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-light);
+}
+
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.card h3 {
+    text-align: center;
+}
+
+.card-footer {
+    margin-top: 1rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.link-over {
+    margin-top: 1rem;
+}
+
+.link-over a {
+    color: var(--primary);
+}
+
+.error-message {
+    font-size: 0.8rem;
+    color: var(--danger);
+    display: block;
+    margin: 0.6rem 0;
+}
+
+.message {
+    padding: 0.4rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    transition: all .2s;
+    transform: scaleX(1);
+}
+
+.message-success {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.message-error {
+    background-color: var(--danger);
+    color: #fff;
+}
+
+.message-off-screen {
+    transform: scaleX(0);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    z-index: 9999;
+    max-width: 500px;
+    margin: 2rem auto;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    transform: translateY(-200%);
+}
+
+.modal.open {
+ transform: translateY(0);
+}
+
+.modal .btn-group {
+    width: 100%;
+}
+
+.modal button {
+    margin-top: 2rem;
+}
+
